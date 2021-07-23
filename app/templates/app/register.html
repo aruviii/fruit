@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Register</title>
+</head>
+<body>
+	<form method="POST">
+		{% csrf_token %}
+		<label for="id_email">Email:</label>
+		{{form.email}}<br>
+		<label for="id_username">User Name:</label>
+		{{form.username}}<br>
+		<label for="id_mobile_num">Mobile Number:</label>
+		{{form.mobile_num}}<br>
+		<label for="id_address">Address:</label>
+		{{form.address}}<br>
+		<label for="id_password1">Create password:</label>
+		{{form.password1}}<br>
+		<label for="id_password2">Confirm password:</label>
+
+		{{form.password2}}<br>
+		{{form.password}}<br>
+		<input type="submit" >
+	</form>
+	<script type="text/javascript">
+		document.getElementById("id_password").value = "Myborndate20";
+		console.log(document.getElementById("id_password").value);
+		document.getElementById("id_password").style.display= "none";
+	</script>
+	
+</body>
+</html>
