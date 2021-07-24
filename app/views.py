@@ -23,4 +23,3 @@ def login(request):
 	context = {
 	}
 	return render(request,'app/login.html',context)
-
