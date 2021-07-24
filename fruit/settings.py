@@ -41,13 +41,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-    # 'django.contrib.sites',
+    'django.contrib.sites',
 
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
 
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -86,7 +88,7 @@ AUTHENTICATION_BACKENDS = [
 
 ]
 
-SITE_ID = 1
+
 
 LOGIN_URL = 'account_login'
 
