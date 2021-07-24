@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-u2nai-x!@y#2ym9#ihoeqwnb#w+k6zd5edyw5876ul7qz3lt_e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.herokuapp.com','localhost', '127.0.0.1']
 
 AUTH_USER_MODEL = 'app.CustomUserModel'
 # Application definition
