@@ -41,6 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 
 ]
 
@@ -72,9 +77,35 @@ TEMPLATES = [
     },
 ]
 
+
+AUTHENTICATION_BACKENDS = [
+
+    'django.contrib.auth.backends.ModelBackend',
+
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+]
+
+SITE_ID = 1
+
+LOGIN_URL = 'account_login'
+
+LOGIN_REDIRECT_URL = 'index'
+
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+
+ACCOUNT_EMAIL_REQUIRED = True 
+
+ACCOUNT_EMAIL_UNIQUE  = True 
+
+AUTH_USER_MODEL = 'app.CustomUser'
+
+ACCOUNT_FORMS = {'signup': 'app.models.CustomSignupForm'}
+
 WSGI_APPLICATION = 'fruit.wsgi.application'
 
-
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
