@@ -9,6 +9,7 @@ def index(request):
 	
 
 	context = {
+	'title':"Store",
 	'current_user':"Login Please"
 	}
 	if request.user.is_authenticated :
