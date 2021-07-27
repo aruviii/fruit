@@ -6,10 +6,14 @@ from django.contrib.auth import login , authenticate
 from .models import CustomUser
 
 def index(request):
+	
+
 	context = {
-	'current_user':CustomUser.objects.get(email = request.user.email )
+	'current_user':"Login Please"
 	}
-	print(context['current_user'].email)
+	if request.user.is_authenticated :
+		context['current_user']=CustomUser.objects.get(email=request.user.email)
+
 	return render(request,'app/index.html',context)
 
 def register(request):
@@ -23,3 +27,4 @@ def login(request):
 	context = {
 	}
 	return render(request,'app/login.html',context)
+

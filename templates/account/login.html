@@ -1,0 +1,59 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+
+<h3>{% trans "Login" %}</h3>
+
+{% get_providers as socialaccount_providers %}
+
+{% if socialaccount_providers %}
+<p>{% blocktrans with site.name as site_name %}Please sign in with one
+of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+
+<div class="socialaccount_ballot">
+
+  <ul class="socialaccount_providers">
+    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+  </ul>
+
+  <div class="login-or">{% trans 'or' %}</div>
+
+</div>
+
+{% include "socialaccount/snippets/login_extra.html" %}
+
+{% else %}
+<p>{% blocktrans %}If you have not created an account yet, then please
+<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+{% endif %}
+
+<form class="login" method="POST" action="{% url 'account_login' %}">
+  {% csrf_token %}
+<!--   {{ form.as_p }}  -->
+  <label for="id_login">E-mail</label><br>
+  {{form.login}}<br>
+  <label for="id_password">Password</label><br>
+  {{form.password}}<br>
+    <label for="id_remember">Remember</label>
+  {{form.remember}}<br>
+  <div id="error_div">
+    {{form.errors}}
+  </div>
+
+  <div>
+  <button class="submit_buttons" class="primaryAction" type="submit">{% trans "Login" %}</button>
+  <a class="submit_buttons" id="cancel_button" href="/">Cancel</a>
+</div>
+</form>
+
+<script type="text/javascript">
+  var errors = document.getElementsByTagName("li");
+  console.log(errors);
+</script>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+<h3>{% trans "Sign Up" %}</h3>
+
+<p class="a_line" >{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+
+<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+  {% csrf_token %}
+  <!-- {{ form.as_p }} -->
+<div id="form_div">
+  <div class="inner_boxes" id="left_box">
+  <label for="id_email" >E-mail: </label><br>{{form.email}}<br>
+  <label for="id_username" >User Name: </label><br>{{form.username}}<br>
+  <label for="id_phone" >phone: </label><br>{{form.phone}}<br>
+  
+  </div>
+  <div class="inner_boxes" id="right_box" >
+    <label for="id_address" >address: </label><br>{{form.address}}<br>
+    <label for="id_password1" >password: </label><br>{{form.password1}}<br>
+    <label for="id_password2" >Confirm password: </label><br>{{form.password2}}<br>
+    
+    
+
+  </div>
+</div>
+<div id="submit_div">
+  <div id="error_div">
+    {{form.errors}}
+  </div>
+  <div id="submit_button_div">
+    <button class="submit_buttons" type="submit">Sign Up</button>
+    <a class="submit_buttons" id="cancel_button" href="/">Cancel</a>
+  </div>
+  
+  
+</div>
+    
+</form>
+<script type="text/javascript">
+  var phone = document.getElementById("id_phone");
+  phone.placeholder = "Phone Number";
+  var address = document.getElementById("id_address");
+  address.placeholder = "Address with land mark";
+</script>
+
+{% endblock %}
