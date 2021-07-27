@@ -5,6 +5,13 @@
 	<title>Index</title>
 </head>
 <body>
-	<h1>{{current_user.email}}</h1>
+	<h3>{{current_user.username}}</h3>
+	<h3>{{current_user.email}}</h3>
+	<h3>{{current_user.address}}</h3>
+	<h3>{{current_user.phone}}</h3>
+	<a href="{% url 'account_logout' %}">logout</a>
+
+
+	
 </body>
 </html>

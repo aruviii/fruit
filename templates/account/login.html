@@ -35,8 +35,8 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
 <form class="login" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
-<!--   {{ form.as_p }}  -->
-  <label for="id_login">E-mail</label><br>
+  {{ form.as_p }} 
+  <!-- <label for="id_login">E-mail</label><br>
   {{form.login}}<br>
   <label for="id_password">Password</label><br>
   {{form.password}}<br>
@@ -44,7 +44,7 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
   {{form.remember}}<br>
   <div id="error_div">
     {{form.errors}}
-  </div>
+  </div> -->
 
   <div>
   <button class="submit_buttons" class="primaryAction" type="submit">{% trans "Login" %}</button>

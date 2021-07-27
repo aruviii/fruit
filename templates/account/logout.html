@@ -15,10 +15,8 @@
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
   {% endif %}
   <button class="submit_buttons" type="submit" id="">{% trans 'Sign Out' %}</button>
-  <ul>
-    <li class="submit_buttons" id="cancel_button"><a   href="/">Cancel</a></li>
-  </ul>
-  
-  
+ 
+  <a class="submit_buttons" id="cancel_button" href="/">Cancel</a>
+
 </form>
 {% endblock %}
