@@ -206,6 +206,29 @@ black = #253136
         width: 300px #253136;
       }
 
+      @media screen and (max-width: 860px) {
+
+        
+
+        #form_div{
+          flex-direction: column;
+        }
+        #right_box{
+          margin-left:0px ;
+        }
+        #submit_div{
+          flex-direction: column;
+        }
+        #contact,#store{
+          display: none;
+        }
+
+        #body_div{
+          margin: 10px;
+        }
+
+      }
+
 
 
     
@@ -236,8 +259,8 @@ black = #253136
 
       <div>
 
-        <a class="nav_buttons" href="#">store</a>
-        <a class="nav_buttons" href="#">contact</a>
+        <a class="nav_buttons" id="store" class="extra_nav" href="#">store</a>
+        <a class="nav_buttons" id="contact" class="extra_nav" href="#">contact</a>
 
         {% if user.is_authenticated %}
         <a class="auth_buttons" href="{% url 'account_logout' %}">Logout</a>
