@@ -1,25 +1,73 @@
+
+<!-- 
+
+
+yellow = #F4ECA4
+
+green = #93e3ab
+
+black = #253136
+
+ -->
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<title>{{title}}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
+
 	{% load static %}
-    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link rel="stylesheet" href="{% static 'app/base.css' %}">
 
 </head>
-<body>
+<body id="outer_body" >
 <div id="body_div">
-	<div>
-		<h1>this is from base</h1>
+	<div id="top_div">
+		
 	</div>
+	<div id="head_div">
+		<h1>ARuvii</h1>	
+		<ul id="nav_list">
+			<li class="list_items">
+				contact
+			</li>
+			<li class="list_items">
+				bag
+			</li>
+			<li class="list_items">
+				<a href="{% url 'account_login' %}">Login</a>
+			</li>
+			<li class="list_items">
+				<a href="{% url 'account_signup' %}">Sign Up</a>
+			</li>
+		</ul>
+	</div>
+	
 	<div>
 		{% block content %}
     	{% endblock %}
 	</div>
 
 </div>
+<script type="text/javascript">
+
+	window.addEventListener("scroll", (event) => {
+    let scroll = this.scrollY;
+    // console.log(scroll);
+    if(scroll>250){
+		document.getElementById("head_div").style.position = "fixed";
+		document.getElementById("head_div").style.top = "0px";
+	}
+	else{
+
+		document.getElementById("head_div").style.position = "absolute";
+		document.getElementById("head_div").style.top = "250px";
+		document.getElementById("head_div").style.width = "100vw";
+		
+	}
+});
+
+</script>
 
 </body>
 </html>
