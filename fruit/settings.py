@@ -32,7 +32,6 @@ INSTALLED_APPS = [
 ]
 
 
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -75,6 +74,8 @@ SITE_ID = 1
 LOGIN_URL = 'account_login'
 
 LOGIN_REDIRECT_URL = 'index'
+
+LOGOUT_REDIRECT_URL = 'index'
 
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 

@@ -18,6 +18,30 @@ black = #253136
 
 	{% load static %}
     <link rel="stylesheet" href="{% static 'app/base.css' %}">
+    <style type="text/css">
+    	#product_details{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			
+			
+		}
+		#product_box{
+			border: 2px solid #93e3ab;
+			padding: 10px;
+			width: 300px;
+			padding: 10px;
+			margin: 10px;	
+		}
+		#product_div{
+
+		}
+		.product_img{
+			width: 300px;
+			height: 300px;
+		}
+    </style>
 
 </head>
 <body id="outer_body" >
@@ -28,6 +52,7 @@ black = #253136
 	<div id="head_div">
 		<h1>ARuvii</h1>	
 		<ul id="nav_list">
+			{% if user.is_authenticated %}
 			<li class="list_items">
 				contact
 			</li>
@@ -35,11 +60,24 @@ black = #253136
 				bag
 			</li>
 			<li class="list_items">
+				<a href="{% url 'account_logout' %}">Logout</a>
+			</li>
+			<li class="list_items">
+				<a href="{% url 'admin' %}">Admin</a>
+			</li>
+			<li class="list_items">
+				{{user.username}}
+			</li>
+			
+			{% else %}
+
+			<li class="list_items">
 				<a href="{% url 'account_login' %}">Login</a>
 			</li>
 			<li class="list_items">
 				<a href="{% url 'account_signup' %}">Sign Up</a>
 			</li>
+			{% endif %}
 		</ul>
 	</div>
 	
@@ -53,7 +91,7 @@ black = #253136
 
 	window.addEventListener("scroll", (event) => {
     let scroll = this.scrollY;
-    // console.log(scroll);
+    
     if(scroll>250){
 		document.getElementById("head_div").style.position = "fixed";
 		document.getElementById("head_div").style.top = "0px";
